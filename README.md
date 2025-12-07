@@ -1,73 +1,56 @@
-# React + TypeScript + Vite
+# WebRTC Educative App 📹
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A real-time video calling application built to demonstrate the core concepts of the **WebRTC** protocol. This project was created as an educational tool to understand how peer-to-peer connections, signaling, and data channels work in modern web development.
 
-Currently, two official plugins are available:
+🔗 **Live Demo:** [webrtc-videocall-app.vercel.app](https://webrtc-videocall-app.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+-   **🎥 Peer-to-Peer Video**: High-quality video and audio streaming directly between clients.
+-   **💬 Real-time Chat**: Text messaging using WebRTC Data Channels (no server storage for messages!).
+-   **📡 Protocol Visualization**: A built-in log visualizer to see the internal handshake events (`Offer`, `Answer`, `ICE Candidate`) in real-time.
+-   **🔒 Secure Signaling**: Uses Supabase Realtime for the initial connection handshake.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+-   **Frontend**: React, TypeScript, Vite
+-   **Styling**: Tailwind CSS
+-   **Signaling Server**: Supabase (PostgreSQL + Realtime)
+-   **WebRTC API**: Native Browser API (`RTCPeerConnection`, `RTCDataChannel`)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1.  Node.js installed.
+2.  A [Supabase](https://supabase.com) project.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Installation
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/albinotonnina/webrtc-videocall-app.git
+    cd webrtc-videocall-app
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3.  Configure Environment:
+    Create a `.env` file (copy from `.env.example`) and add your Supabase credentials:
+    ```env
+    VITE_SUPABASE_URL=your_project_url
+    VITE_SUPABASE_ANON_KEY=your_anon_key
+    ```
+    *Note: You need to run the SQL from `supabase_schema.sql` in your Supabase SQL Editor to create the necessary tables.*
+
+4.  Run the development server:
+    ```bash
+    npm run dev
+    ```
+
+## License
+
+MIT
