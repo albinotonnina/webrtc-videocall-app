@@ -49,7 +49,7 @@ export function Room({ roomId, onLeave }: RoomProps) {
                 </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1 min-h-0">
                 {/* Local Video */}
                 <VideoPlayer
                     stream={stream}
@@ -76,11 +76,11 @@ export function Room({ roomId, onLeave }: RoomProps) {
                 )}
             </div>
 
-            <div className="h-48 hidden md:block">
+            <div className="h-48 hidden md:block flex-shrink-0">
                 <ProtocolVisualizer logs={logs} />
             </div>
 
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center gap-4 flex-shrink-0">
                 <Controls
                     toggleAudio={toggleAudio}
                     toggleVideo={toggleVideo}
@@ -90,8 +90,8 @@ export function Room({ roomId, onLeave }: RoomProps) {
                 <button
                     onClick={() => setIsChatOpen(!isChatOpen)}
                     className={`relative p-4 rounded-full transition-all duration-200 shadow-lg border border-gray-700 ${isChatOpen
-                            ? 'bg-blue-600 text-white hover:bg-blue-500'
-                            : 'bg-gray-800 text-white hover:bg-gray-700'
+                        ? 'bg-blue-600 text-white hover:bg-blue-500'
+                        : 'bg-gray-800 text-white hover:bg-gray-700'
                         }`}
                 >
                     <MessageSquare size={24} />
