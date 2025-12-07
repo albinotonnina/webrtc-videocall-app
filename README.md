@@ -104,7 +104,7 @@ sequenceDiagram
     end
 
     rect rgb(255, 250, 240)
-    Note over Alice: Step 2: Offfer Creation
+    Note over Alice: Step 2: Offer Creation
     Alice->>Alice: Creates 'Data Channel'
     Alice->>Alice: Creates SDP Offer
     Alice->>Supabase: Sends Signal: { type: 'offer', sdp: ... }
@@ -133,8 +133,10 @@ sequenceDiagram
 
     rect rgb(200, 255, 200)
     Note over Alice, Bob: 🚀 CONNECTION ESTABLISHED
-    Alice<-->>Bob: P2P Media Stream (Video/Audio)
-    Alice<-->>Bob: P2P Data Channel (Chat Messages)
+    Alice->>Bob: P2P Media Stream (Video/Audio)
+    Bob->>Alice: P2P Media Stream (Video/Audio)
+    Alice->>Bob: P2P Data Channel (Chat Messages)
+    Bob->>Alice: P2P Data Channel (Chat Messages)
     end
 ```
 
