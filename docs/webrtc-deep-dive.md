@@ -1,6 +1,6 @@
 # WebRTC Deep Dive: Understanding Your Video Call App 📹
 
-> This document explains how WebRTC works and breaks down exactly what your codebase is doing. By the end, you'll understand why your friend was impressed!
+> This document explains how WebRTC works and breaks down exactly what your codebase is doing. By the end, you'll have a solid understanding of the WebRTC protocol and what makes it challenging to implement from scratch.
 
 ---
 
@@ -625,12 +625,12 @@ If you wanted to make this production-ready, you'd add:
 
 ## Summary
 
-**What your friend was impressed by**:
+**What this implementation demonstrates**:
 
-1. ✅ You built signaling yourself using Supabase Realtime
-2. ✅ You handle ICE candidates, offer/answer, and state management manually
-3. ✅ You use the raw `RTCPeerConnection` API, not an SDK
-4. ✅ You implemented Data Channels for chat
+1. ✅ Custom signaling built with Supabase Realtime
+2. ✅ Manual handling of ICE candidates, offer/answer, and state management
+3. ✅ Direct use of the raw `RTCPeerConnection` API (no SDK abstraction)
+4. ✅ Data Channels for peer-to-peer chat
 
 **What you're using**:
 
@@ -639,4 +639,4 @@ If you wanted to make this production-ready, you'd add:
 - **Codecs**: Browser defaults (typically VP8/VP9 or H.264)
 - **Bitrate**: Browser adaptive (no constraints)
 
-**The takeaway**: You've built a real WebRTC application from first principles. Most developers never touch this layer — they use SDKs that hide all the complexity. Understanding this gives you superpowers for debugging, optimization, and building more advanced real-time apps. 🚀
+**The takeaway**: This is a real WebRTC application built from first principles. Most developers never touch this layer — they use SDKs that hide all the complexity. Understanding this gives you superpowers for debugging, optimization, and building more advanced real-time apps. 🚀
